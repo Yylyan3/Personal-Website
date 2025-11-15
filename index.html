@@ -419,31 +419,34 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 30px;
+            align-items: start;
         }
 
         .media-item {
             background: transparent;
             padding: 0;
-        }
-
-        .media-item:hover {
-            /* No hover effects */
-        }
-
-        .media-item:last-child {
-            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
         }
 
         .media-item h3 {
             font-size: 16px;
             font-weight: 100;
             margin-bottom: 4px;
+            margin-top: 0;
         }
 
         .media-item p {
             font-size: 14px;
             color: #666;
             margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .media-item iframe,
+        .media-item .youtube-thumbnail {
+            margin-top: 10px;
+            align-self: stretch;
         }
 
         .media-link {
@@ -452,6 +455,57 @@
             font-size: 13px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+        }
+
+        .youtube-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+            background: #000;
+            display: block;
+        }
+
+        .youtube-thumbnail:hover {
+            opacity: 0.9;
+        }
+
+        .youtube-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .youtube-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 48px;
+            background-color: rgba(23, 35, 34, 0.9);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .youtube-thumbnail:hover .youtube-play-button {
+            background-color: #f00;
+        }
+
+        .youtube-play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 24px solid #fff;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 4px;
         }
 
         /* Works List */
@@ -496,6 +550,10 @@
 
         .work-item:hover {
             background-color: rgba(0,0,0,0.02);
+        }
+
+        .work-item.hidden {
+            display: none;
         }
 
         .work-title {
@@ -773,18 +831,21 @@
                 <div class="media-grid">
                     <div class="media-item">
                         <h3>ciāo</h3>
-                        <p>2022 • 15 musicians • 8'10"</p>
+                        <p>2022 • large ensemble • 8'10"</p>
                         <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1265443165&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" style="margin-top: 10px;"></iframe>
                         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/2-2-5a" title="ciāo《劁》[2022]" target="_blank" style="color: #cccccc; text-decoration: none;">ciāo《劁》[2022]</a></div>
                     </div>
                     <div class="media-item">
                         <h3>Post-Pandemic Memo</h3>
-                        <p>2022 • vc., elec. • 8'50"</p>
-                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/Ce2N7Xvy9WI?si=L0dDBH1gvNiMigkq&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="margin-top: 10px;"></iframe>
+                        <p>2022 • vc., elec. • 9'</p>
+                        <div class="youtube-thumbnail" data-video-id="Ce2N7Xvy9WI">
+                            <img src="https://img.youtube.com/vi/Ce2N7Xvy9WI/hqdefault.jpg" alt="Post-Pandemic Memo" width="100%" height="300" loading="eager" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/Ce2N7Xvy9WI/sddefault.jpg';">
+                            <div class="youtube-play-button"></div>
+                        </div>
                     </div>
                     <div class="media-item" style="grid-column: 1 / -1;">
                         <h3>Studies for the Second Womb</h3>
-                        <p>2023 • tsax., vc., elec. • 11'50"</p>
+                        <p>2023 • tsax., vc., elec. • 12'</p>
                         <iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2088090663&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" style="margin-top: 10px;"></iframe>
                         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/sets/studies-for-the-second-womb" title="Studies for the Second Womb《二号子宫研究》[2023]" target="_blank" style="color: #cccccc; text-decoration: none;">Studies for the Second Womb《二号子宫研究》[2023]</a></div>
                     </div>
@@ -800,14 +861,17 @@
                         <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2170619211&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" style="margin-top: 10px;"></iframe>
                         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/fo-ii" title="Fo II [2025]" target="_blank" style="color: #cccccc; text-decoration: none;">Fo II [2025]</a></div>
                     </div>
-                    <div class="media-item">
+                    <div class="media-item" style="grid-column: 1 / -1;">
                         <h3>Works for hybrid ensemble (Chinese traditional instruments & Western orchestral instruments)</h3>
                         <iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A1377555565&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" style="margin-top: 10px;"></iframe>
                     </div>
                     <div class="media-item">
                         <h3>Naked Question</h3>
                         <p>2022 • vc., elec. • 11'20"</p>
-                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/kt5gypl67ig?si=5TytwtEVvSngWxJH&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="margin-top: 10px;"></iframe>
+                        <div class="youtube-thumbnail" data-video-id="kt5gypl67ig">
+                            <img src="https://img.youtube.com/vi/kt5gypl67ig/hqdefault.jpg" alt="Naked Question" width="100%" height="300" loading="eager" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/kt5gypl67ig/sddefault.jpg';">
+                            <div class="youtube-play-button"></div>
+                        </div>
                     </div>
                     <div class="media-item">
                         <h3>M'offrirai</h3>
@@ -979,7 +1043,7 @@
                         </div>
                         <div class="work-instrumentation">solo guzheng • 6'40"</div>
                     </div>
-                    <div class="work-item" data-category="acoustic">
+                    <div class="work-item hidden" data-category="acoustic">
                         <div class="work-title">
                             <span class="work-year">2016</span>
                             <a href="works/mountain-moon.html">Mountain Moon《山月》</a>
@@ -1000,7 +1064,7 @@
                         </div>
                         <div class="work-instrumentation">vc., pno. • 8'</div>
                      </div>
-                    <div class="work-item" data-category="acoustic">
+                    <div class="work-item hidden" data-category="acoustic">
                         <div class="work-title">
                             <span class="work-year">2013-14</span>
                             <a href="works/no-flowers-of-wealth.html">No Flowers of Wealth《不是人间富贵花》</a>
@@ -1135,8 +1199,6 @@
                     </div>
                     <div class="contact-item">
                         <strong>Social:</strong> 
-                        <a href="#" style="margin-right: 15px;">LinkedIn</a>
-                        <a href="#" style="margin-right: 15px;">Instagram</a>
                         <a href="https://soundcloud.com/yulin-yan-543435110" target="_blank">SoundCloud</a>
                     </div>
                 </div>
@@ -1193,7 +1255,10 @@
 
             const works = document.querySelectorAll('.work-item');
             works.forEach(work => {
-                if (category === 'all' || work.dataset.category === category) {
+                // Skip items with hidden class - they should always be hidden
+                if (work.classList.contains('hidden')) {
+                    work.style.display = 'none';
+                } else if (category === 'all' || work.dataset.category === category) {
                     work.style.display = 'block';
                 } else {
                     work.style.display = 'none';
@@ -1373,8 +1438,35 @@
             });
         }
 
+        // YouTube thumbnail click handler - embed video inline
+        function initYouTubeThumbnails() {
+            const youtubeThumbnails = document.querySelectorAll('.youtube-thumbnail');
+            youtubeThumbnails.forEach(thumbnail => {
+                // Only add listener if it's not already an iframe and doesn't have the listener yet
+                if (!thumbnail.querySelector('iframe') && !thumbnail.hasAttribute('data-listener-attached')) {
+                    thumbnail.setAttribute('data-listener-attached', 'true');
+                    thumbnail.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const videoId = this.getAttribute('data-video-id');
+                        if (!videoId) return;
+                        
+                        const startTime = this.getAttribute('data-start-time') || '';
+                        const height = window.getComputedStyle(this).height || '300px';
+                        const embedUrl = `https://www.youtube.com/embed/${videoId}${startTime ? '?start=' + startTime : ''}`;
+                        
+                        // Replace thumbnail with iframe
+                        this.innerHTML = `<iframe width="100%" height="${height}" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                    }, { once: true });
+                }
+            });
+        }
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize YouTube thumbnails
+            initYouTubeThumbnails();
+
             // Try to restore from localStorage first (for IDE refreshes)
             const savedPage = localStorage.getItem('currentPage');
             const hash = window.location.hash.substring(1); // Remove the '#'
@@ -1392,6 +1484,7 @@
                 initNeuralNetwork();
                 initAudioBubbles();
             }
+
         });
 
         // Initialize neural network when home page is shown
@@ -1404,6 +1497,10 @@
                     initAudioBubbles();
                 }, 100);
             }
+            // Re-initialize YouTube thumbnails when switching pages (in case Media page is loaded dynamically)
+            setTimeout(() => {
+                initYouTubeThumbnails();
+            }, 100);
         };
     </script>
 </body>

@@ -71,6 +71,14 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
+        .section.program-notes-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,23 +211,33 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
-        <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+        <div class="section program-notes-section">
+            <h3>Program Notes</h3>
+            <p>Since the dawn of civilization, prayer has accompanied every form of human activity—even sacrifice.
+                Though people today come from different places, with different histories and burdens, none have ever abandoned the act of praying—only transformed its form.
+                This timeless connection, rooted in the primal depths of the human mind, inspired me to write this song without words.<br><br>
+                This piece is a dedication to my grandmother, who had lived through a simple and
+                sincere eighty-year-old life.</p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
-                    <div class="performance-date">Performance date | Location</div>
-                    <div class="performance-title">Performance venue/event</div>
-                    <div class="performance-details">Performer details</div>
+                    <div class="performance-date">April 16, 2019 | Chengdu, China</div>
+                    <div class="performance-title">Sichuan Conservatory of Music</div>
+                    <div class="performance-details">Aluo Huang, soprano<br>
+                    Zitong Wei, violin I<br>
+                    Xingyao He. violin II<br>
+                    Boxiao Liu, viola I<br>
+                    Pai Pang, viola II<br>
+                    Xiaomin Zheng, violoncello I<br>
+                    Songyang Xie, violoncello II</div>
                 </li>
             </ul>
         </div>
@@ -229,7 +247,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>

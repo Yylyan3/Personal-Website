@@ -71,6 +71,14 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
+        .section.program-notes-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -152,6 +160,68 @@
             font-style: italic;
         }
 
+        .youtube-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .youtube-thumbnail iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .youtube-thumbnail:hover {
+            opacity: 0.9;
+        }
+
+        .youtube-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            min-height: 450px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .youtube-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 48px;
+            background-color: rgba(23, 35, 34, 0.9);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+
+        .youtube-thumbnail:hover .youtube-play-button {
+            background-color: #f00;
+        }
+
+        .youtube-play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 24px solid #fff;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 4px;
+        }
+
         .score-button {
             display: inline-block;
             padding: 12px 24px;
@@ -218,22 +288,30 @@
                     <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2107935573%3Fsecret_token%3Ds-ogVbmtmxkE2&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
                     <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/the-scent-blind/s-ogVbmtmxkE2" title="The Scent Blind《香盲者》[2024-25]" target="_blank" style="color: #cccccc; text-decoration: none;">The Scent Blind《香盲者》[2024-25]</a></div>
                 </div>
+                <!-- YouTube embed -->
+                <div class="media-embed">
+                    <div class="youtube-thumbnail" data-video-id="1PJP87RBJ3M">
+                        <img src="https://img.youtube.com/vi/1PJP87RBJ3M/hqdefault.jpg" alt="The Scent Blind" width="100%" height="450" loading="eager" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/1PJP87RBJ3M/sddefault.jpg';">
+                        <div class="youtube-play-button"></div>
+                    </div>
+                </div>
+
 
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
-        <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+        <div class="section program-notes-section">
+            <h3>Program Notes</h3>
+            <p>n/a</p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
                     <div class="performance-date">April 10, 2025 | Montreal, Canada</div>
@@ -252,8 +330,23 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
+
+            // YouTube thumbnail click handler - embed video inline
+            const youtubeThumbnails = document.querySelectorAll('.youtube-thumbnail');
+            youtubeThumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const startTime = this.getAttribute('data-start-time') || '';
+                    const params = [];
+                    if (startTime) params.push(`start=${startTime}`);
+                    params.push('controls=0');
+                    const embedUrl = `https://www.youtube.com/embed/${videoId}${params.length ? '?' + params.join('&') : ''}`;
+                    
+                    this.innerHTML = `<iframe width="100%" height="450" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                });
+            });
         });
     </script>
 </body>

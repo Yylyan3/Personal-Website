@@ -71,6 +71,10 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,23 +207,25 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
         <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+            <h3>Program Notes</h3>
+            <p>The text used in this piece is excerpted from the novel <i>Fang Si-Qi’s First Love Paradise</i> (《房思琪的初恋乐园》) by Taiwanese writer Lin Yi-han (林奕含, 1991–2017).
+                Based on a true story, the novel exposes the hidden sexual crimes committed in the name of “love” against children.
+                At the same time, it is not only about children or about sex. A multitude of abuses, invasions, and indoctrinations—again, all in the name of “love”—are happening everywhere, in different forms and under different excuses. That is the destined reality.</p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
-                    <div class="performance-date">Performance date | Location</div>
-                    <div class="performance-title">Performance venue/event</div>
-                    <div class="performance-details">Performer details</div>
+                    <div class="performance-date">December xx, 2021 | Montreal, Canada</div>
+                    <div class="performance-title">MUCO 341 - Final Concert</div>
+                    <div class="performance-details">Yulin Yan, diffusion</div>
                 </li>
             </ul>
         </div>
@@ -229,7 +235,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>

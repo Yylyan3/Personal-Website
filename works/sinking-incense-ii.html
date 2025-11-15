@@ -71,6 +71,10 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,23 +207,35 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
         <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+            <h3>Program Notes</h3>
+            <p>In the realms of time and space, 
+                sound and scent share similar patterns and trajectories.
+                <i>Sinking Incense Ⅱ</i> is not merely a sonic portrayal of a fragrant object,
+                but a piece of agarwood itself, embedded in time.
+                From the very first moment, it scents, and it sounds.
+                </p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
                     <div class="performance-date">July 11, 2025 | Marseille, France</div>
                     <div class="performance-title"><a href="https://www.arco-academy.eu/events/agenda" target="_blank">ARCO Academy 2025</a></div>
-                    <div class="performance-details">Ensemble Multilatérale, Sohye Jung (cond.)</div>
+                    <div class="performance-details">Ensemble Multilatérale<br>     
+                        <div style="padding-left: 2ch;">Matteo Cesari, flute<br>
+                            Alain Billard, clarinet<br>
+                            Hélène Colombotti, percussion<br>
+                            Aurélie Saraf, harp<br>
+                            Pablo Tognan, violoncello<br>
+                            Nicolas Crosse, double bass<br></div>
+                            Sohye Jung, conductor</div>
                 </li>
             </ul>
         </div>
@@ -229,7 +245,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>

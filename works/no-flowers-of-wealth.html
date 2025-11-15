@@ -71,6 +71,10 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,18 +207,18 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
         <div class="section">
-            <h3>Program Note</h3>
+            <h3>Program Notes</h3>
             <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
                     <div class="performance-date">Performance date | Location</div>
@@ -229,7 +233,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>

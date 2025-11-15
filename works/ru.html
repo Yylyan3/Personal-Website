@@ -71,6 +71,10 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,23 +207,27 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
-            <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
+            <a href="https://scorefol.io/w/lf37hcxbvzatq82ta2y5sx0b" class="score-button" target="_blank">View Score</a>
         </div>
 
         <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+            <h3>Program Notes</h3>
+            <p>Ru echoes many meanings in Chinese—as if (如), Confucianism (儒), to eat (茹), and disgrace (辱). This piece is an arbitrary abstract of the sound-world of ancient China.</p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
                     <div class="performance-date">March 19, 2024 | Montreal, Canada</div>
                     <div class="performance-title"><a href="https://www.ensembleeclat.com/residencedecreationmcgill" target="_blank">Ensemble Éclat residency</a></div>
-                    <div class="performance-details">Ensemble Éclat, Charles-Eric Fontaine (cond.)</div>
+                    <div class="performance-details">Ensemble Éclat<br>     
+<div style="padding-left: 2ch;">Antonin Cuerrier, bass clarinet<br>
+Audréanne Filion, violoncello<br>
+Paul Çelebi, piano<br></div>
+Charles-Eric Fontaine, conductor</div>
                 </li>
             </ul>
         </div>
@@ -229,7 +237,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>

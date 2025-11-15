@@ -71,6 +71,14 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
+        .section.program-notes-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,18 +211,20 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
-        <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+        <div class="section program-notes-section">
+            <h3>Program Notes</h3>
+            <p><i>A Wanderer Beyond the Sea</i> is about a springtime from a far distant land: After being lost in a remote village, unexpectedly, under the unfamiliar sprinkles, one chose to do nothing but kept wandering aimlessly, time after time. From where always came along with raptures of all new and the most grounded kind of nostalgia......<br>
+
+                </p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
                     <div class="performance-date">June 2022 | Weimar, Germany</div>
@@ -223,7 +233,8 @@
                 <li class="performance-item">
                     <div class="performance-date">August 08, 2019 | Bangkok, Thailand</div>
                     <div class="performance-title">15th Thailand International Composition Festival 2019</div>
-                    <div class="performance-details">Hong Kong New Music Ensemble, Gregor A. Mayrhofer (cond.)</div>
+                    <div class="performance-details">Hong Kong New Music Ensemble<br>
+                        Gregor A. Mayrhofer, conductor</div>
                 </li>
             </ul>
         </div>
@@ -233,7 +244,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>

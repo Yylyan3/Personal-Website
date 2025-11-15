@@ -71,6 +71,14 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
+        .section.performances-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,18 +211,20 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
         <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+            <h3>Program Notes</h3>
+            <p>The inspiration for this piece came from a walking journey through a Tibetan village called <i>Qiaoqi</i> (硗碛), near my hometown. Among the mountains, people sing, dance, and whirl together around the hills, the water, and the pagoda. There is a special song—one of the local folk choruses—called <i>Sayi</i>, which people sing only when praying during a rite. 
+                Accompanied by dance steps, the song’s unique and delicate structure deeply fascinated me and became the foundation of this piece.<br>
+
         </div>
 
-        <div class="section">
-            <h3>Performance History</h3>
+        <div class="section performances-section">
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
                     <div class="performance-date">Performance date | Location</div>
@@ -229,7 +239,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>

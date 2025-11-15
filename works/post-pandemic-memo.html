@@ -71,6 +71,10 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -152,6 +156,63 @@
             font-style: italic;
         }
 
+        .youtube-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .youtube-thumbnail iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .youtube-thumbnail:hover {
+            opacity: 0.9;
+        }
+
+        .youtube-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .youtube-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 48px;
+            background-color: rgba(23, 35, 34, 0.9);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .youtube-thumbnail:hover .youtube-play-button {
+            background-color: #f00;
+        }
+
+        .youtube-play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 24px solid #fff;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 4px;
+        }
+
         .score-button {
             display: inline-block;
             padding: 12px 24px;
@@ -190,14 +251,17 @@
         <div class="work-header">
             <h1 class="work-title">Post-Pandemic Memo《后疫书》</h1>
             <div class="work-meta">2022 • 8 min 50 sec</div>
-            <div class="work-instrumentation">cello, live electronics</div>
+            <div class="work-instrumentation">cello, electronics</div>
         </div>
 
         <div class="media-section">
             <div class="section">
                 <h3>Media</h3>
                 <div class="media-embed">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/Ce2N7Xvy9WI?si=L0dDBH1gvNiMigkq&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="youtube-thumbnail" data-video-id="Ce2N7Xvy9WI">
+                        <img src="https://img.youtube.com/vi/Ce2N7Xvy9WI/maxresdefault.jpg" alt="Post-Pandemic Memo" onerror="this.src='https://img.youtube.com/vi/Ce2N7Xvy9WI/hqdefault.jpg'">
+                        <div class="youtube-play-button"></div>
+                    </div>
                 </div>
                 <div class="media-embed">
                     <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1280002099&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
@@ -206,33 +270,34 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
         <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
+            <h3>Program Notes</h3>
+            <p>Post-Pandemic Memo is a mixed piece with theatrical elements, originally inspired by a personal period of mental fluctuation during COVID-19. It is also an introspective work that reflects on how people’s voices were dampened, muted, and “canceled” during the global pandemic—through the use of connotations of the censor beep sound, performer’s gestures, and masks as both visual and auditory props.
+                </p>
         </div>
 
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
                     <div class="performance-date">September 15, 2023 | Montreal, Canada</div>
                     <div class="performance-title"><a href="https://fb.me/e/9VgUiiVVm" target="_blank">C'est la fête! Peter-McGill</a></div>
-                    <div class="performance-details">Audréanne Filion (vc.)</div>
+                    <div class="performance-details">Audréanne Filion, violoncello</div>
                 </li>
                 <li class="performance-item">
                     <div class="performance-date">February 02, 2023 | Montreal, Canada</div>
                     <div class="performance-title"><a href="https://levivier.ca/en/concert/2022-23-season/concert-vivier-interuniversitaire" target="_blank">7th Annual ViU Concert</a></div>
-                    <div class="performance-details">Audréanne Filion (vc.)</div>
+                    <div class="performance-details">Audréanne Filion, violoncello</div>
                 </li>
                 <li class="performance-item">
                     <div class="performance-date">May 2022 | Montreal, Canada</div>
                     <div class="performance-title">ViU Collaboration Project - 1st Edition</div>
-                    <div class="performance-details">Audréanne Filion (vc.)</div>
+                    <div class="performance-details">Audréanne Filion, violoncello</div>
                 </li>
             </ul>
         </div>
@@ -242,8 +307,20 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
+
+            // YouTube thumbnail click handler - embed video inline
+            const youtubeThumbnails = document.querySelectorAll('.youtube-thumbnail');
+            youtubeThumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const startTime = this.getAttribute('data-start-time') || '';
+                    const embedUrl = `https://www.youtube.com/embed/${videoId}${startTime ? '?start=' + startTime : ''}`;
+                    
+                    this.innerHTML = `<iframe width="100%" height="450" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                });
+            });
         });
     </script>
 </body>

@@ -71,6 +71,10 @@
             margin-bottom: 40px;
         }
 
+        .section.score-section {
+            display: none;
+        }
+
         .section h3 {
             font-size: 18px;
             font-weight: 100;
@@ -203,23 +207,32 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section score-section">
             <h3>Score</h3>
             <a href="path/to/score.pdf" class="score-button" target="_blank">View Score</a>
         </div>
 
         <div class="section">
-            <h3>Program Note</h3>
-            <p>Program note content would go here, describing the work's concept, inspiration, and compositional approach.</p>
-        </div>
-
+            <h3>Program Notes</h3>
+            <p>This piece arises from the thought of the <i>absurd</i>, a feeling that has long haunted me when contemplating the human life process.
+                It stems from imagining the reversibility of time: the more we gain through maturity, the less remains within us.
+                Through music, I trace a reversed life cycle, where time—the same vessel that carries life—flows backward.
+                Five states of mind unfold in reverse, forming an absurd yet renewing journey: <i>detached — fear-based — the moment — fearless — alive</i>.<br>
+            </div>
         <div class="section">
-            <h3>Performance History</h3>
+            <h3>Performances</h3>
             <ul class="performance-list">
                 <li class="performance-item">
-                    <div class="performance-date">Performance date | Location</div>
-                    <div class="performance-title">Performance venue/event</div>
-                    <div class="performance-details">Performer details</div>
+                    <div class="performance-date">December 14, 2019 | Chengdu, China</div>
+                    <div class="performance-title">Sichuan Conservatory of Music</div>
+                    <div class="performance-details">Yong Xu, sheng<br>
+                        Jingyao Yu, flute<br>
+                        Xingyou Du, clarinet<br>
+                        Zhen Kang, guzheng<br>
+                        Honglin Kuang, pipa<br>
+                        Song Zhao, violin<br>
+                        Boxun Zhang, violoncello<br>
+                        Huan Zhang, conductor</div>
                 </li>
             </ul>
         </div>
@@ -229,7 +242,7 @@
         // Static navigation - always back to works
         document.addEventListener('DOMContentLoaded', function() {
             const backLink = document.getElementById('back-link');
-            backLink.href = '../Personal Website.html#works';
+            backLink.href = '../index.html#works';
             backLink.textContent = '← Back to Works';
         });
     </script>
