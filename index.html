@@ -26,39 +26,6 @@
             min-height: 100vh;
         }
 
-        /* Language Switch */
-        .language-switch {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            z-index: 200;
-            display: flex;
-            gap: 35px;
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: none;
-            font-family: 'Optima', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 12px;
-            font-weight: 100;
-            letter-spacing: 1px;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            padding: 0;
-        }
-
-        .lang-btn:hover {
-            color: #333;
-        }
-
-        .lang-btn.active {
-            color: #333;
-            text-decoration: underline;
-        }
-
         /* Left Navigation */
         .sidebar {
             width: 280px;
@@ -390,6 +357,7 @@
             flex: 1;
             font-size: 16px;
             line-height: 1.8;
+            text-align: justify;
         }
 
         .bio-content p {
@@ -710,11 +678,6 @@
                 padding: 40px 30px;
             }
 
-            .language-switch {
-                top: 20px;
-                right: 20px;
-            }
-
             .media-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -738,11 +701,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Language Switch -->
-        <div class="language-switch">
-            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="switchLanguage('ch')">CH</button>
-        </div>
         <!-- Left Sidebar Navigation -->
         <nav class="sidebar">
             <div class="nav-content">
@@ -755,6 +713,11 @@
                     <li><a href="#" onclick="showPage('works')" data-page="works">WORKS</a></li>
                     <li><a href="#" onclick="showPage('events')" data-page="events">EVENTS</a></li>
                     <li><a href="#" onclick="showPage('contact')" data-page="contact">CONTACT</a></li>
+                    <li style="margin-top: 10px;">
+                        <a href="https://soundcloud.com/yulin-yan-543435110" target="_blank" style="display: inline-flex; align-items: center; padding-left: 0; text-transform: none; letter-spacing: 0;">
+                            <img src="soundcloud-svgrepo-com.svg" alt="SoundCloud" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(40%); transition: all 0.3s ease;">
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="sidebar-copyright">
@@ -767,35 +730,9 @@
         <main class="main-content">
             <!-- Home Page -->
             <div id="home" class="page active">
-                <div class="neural-network-container">
-                    <canvas id="neuralCanvas"></canvas>
-                    <div class="audio-bubbles">
-                        <div class="audio-bubble" data-audio="audio-excerpts/Flute_Bird_gliss+tk.wav" data-title="Flute Bird Gliss">
-                            <div class="bubble-content">
-                                <span class="bubble-title">Bird Gliss</span>
-                            </div>
-                        </div>
-                        <div class="audio-bubble" data-audio="audio-excerpts/Flute_Bird_humming.wav" data-title="Flute Bird Humming">
-                            <div class="bubble-content">
-                                <span class="bubble-title">Bird Humming</span>
-                            </div>
-                        </div>
-                        <div class="audio-bubble" data-audio="audio-excerpts/Flute_Dual_flz..wav" data-title="Flute Dual">
-                            <div class="bubble-content">
-                                <span class="bubble-title">Dual Flute</span>
-                            </div>
-                        </div>
-                        <div class="audio-bubble" data-audio="audio-excerpts/Flute_flute_keyclicks.wav" data-title="Flute Key Clicks">
-                            <div class="bubble-content">
-                                <span class="bubble-title">Key Clicks</span>
-                            </div>
-                        </div>
-                        <div class="audio-bubble" data-audio="audio-excerpts/Flute_flute_tongue ram.wav" data-title="Flute Tongue Ram">
-                            <div class="bubble-content">
-                                <span class="bubble-title">Tongue Ram</span>
-                            </div>
-                        </div>
-                    </div>
+                <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; min-height: calc(100vh - 120px); padding-top: 10vh;">
+                    <img src="Headshot_YulinYan_2.jpg" alt="Yulin Yan" onclick="openModal('Headshot_YulinYan_2.jpg')" style="max-width: 50%; max-height: 45vh; object-fit: contain; cursor: pointer;">
+                    <div style="margin-top: 20px; font-size: 12px; color: #666; letter-spacing: 0.5px; font-family: Optima, 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;">Photo @ DONGXIAOYUAN</div>
                 </div>
             </div>
 
@@ -805,16 +742,10 @@
                     <h2>BIO</h2>
                 </div>
                 <div class="bio-layout">
-                    <div class="bio-photo">
-                        <img src="Headshot_YulinYan.jpg" alt="Yulin Yan" onclick="openModal()">
-                    </div>
                     <div>
                         <div class="bio-content" id="bio-long-en">
-                            <p>Yulin Yan, yehyehyeh born in 1998, is a composer of instrumental and electroacoustic music. Her works are characterized by nuanced timbre and tension, emphasizing the ambiguity of the perception of reality and fantasy. Besides the sonic layer, the intensity of her works is often created by reference to extra-musical content, including literature, theatrical elements, olfactory art as well as social issues.
-                          </p>Yan's music have been programmed on various occasions across the world, including ilSUONO Contemporary Music Week, live@CIRMMT, Code d'accès, Collectof RADIANCE, Novalis Festival, Roadrunner Academy, Thailand International Composition Festival etc. She collaborated with Ensemble Suono Giallo, Hong Kong New Music Ensemble, Ensemble Éclat, McGill Contemporary Music Ensemble, McGill SSoM Saxophone, New Zealand String Quartet, as well as conductor Lorraine Vaillancourt, Gregor A. Mayrhofer, Charles-Eric Fontaine etc. She is the recipient of Schulich Grad Scholarship, National Scholarship (China), and Sichuan Outstanding Graduate. She holds a bachelor degree from Sichuan Conservatory of Music where she studied composition with Xiaozhong Yang. She is currently pursuing her doctorate degree at McGill University Schulich School of Music with Philippe Leroux, where she also obtained her master's degree.</p>
-                        </div>
-                        <div class="bio-content" id="bio-long-ch" style="display:none;">
-                            <p>晏毓璘（1998年，生于中国成都），青年作曲家。其创作涉及器乐、电声及混合电子音乐的交互探索。本科毕业于四川音乐学院，师从杨晓忠教授。目前，她以全额奖学金在麦吉尔大学舒立克音乐学院攻读作曲博士学位，师从法国作曲家菲利普·勒鲁（Philippe Leroux）。她的作品曾在加拿大、法国、荷兰、意大利、克罗地亚、中国等数十个国际音乐活动中展演，并与Ensemble Multilatérale、Ensemble Suono Giallo、Hong Kong New Music Ensemble、Ensemble Éclat、Roadrunner Trio等职业乐团，以及指挥家Lorraine Vaillancourt、Gregor A. Mayrhofer等合作。她曾获得Schulich研究生奖学金、中国国家奖学金及国家公派留学奖学金。</p>
+                            <p>Yulin Yan (b. 1998) is a Chinese composer of instrumental and electroacoustic music whose work explores nuanced timbres and tension. Drawing on literature, theatricality, olfactory art, and social concerns, her music creates multilayered and sensorial experiences. Her works have been presented internationally at events such as ARCo Academy, ilSUONO Contemporary Music Week, live@CIRMMT, Code d’accès, Collectif RADIANCE, Novalis Festival, Roadrunner Academy, and the Thailand International Composition Festival, among others. She has collaborated with ensembles including Ensemble Multilatérale, Ensemble Suono Giallo, Hong Kong New Music Ensemble, Ensemble Éclat, McGill Contemporary Music Ensemble, and McGill SSoM Saxophone, as well as conductors Lorraine Vaillancourt, Gregor A. Mayrhofer, Charles-Eric Fontaine, and Sohye Jung.
+                          </p>Yan receives funding from the Fonds de recherche du Québec (FRQ-SC), the China Scholarship Council (CSC), the Schulich Graduate Scholarship, and the National Scholarship (China). She holds a Bachelor’s degree in Composition from the Sichuan Conservatory of Music, where she studied with Xiaozhong Yang, and a Master’s degree from McGill University, where she is currently pursuing her Doctorate in composition under the supervision of Philippe Leroux.</p>
                         </div>
                         <div style="margin-top: 50px; margin-bottom: 20px;">
                             <a href="CV_YulinYan.pdf" class="cv-link" target="_blank">CURRICULUM VITAE</a>
@@ -1197,10 +1128,6 @@
                     <div class="contact-item">
                         <strong>Email:</strong> <a href="mailto:yulin.yan33@gmail.com">yulin.yan33@gmail.com</a>
                     </div>
-                    <div class="contact-item">
-                        <strong>Social:</strong> 
-                        <a href="https://soundcloud.com/yulin-yan-543435110" target="_blank">SoundCloud</a>
-                    </div>
                 </div>
             </div>
         </main>
@@ -1236,14 +1163,13 @@
                 activeLink.classList.add('active');
             }
 
-            // Save current page to localStorage for IDE refreshes
-            localStorage.setItem('currentPage', pageId);
-
-            // Update URL hash to preserve page state on refresh
+            // Don't save home page to localStorage - always default to home on load
             if (pageId !== 'home') {
+                localStorage.setItem('currentPage', pageId);
                 window.location.hash = pageId;
             } else {
-                // Clear hash for home page
+                // Clear hash and localStorage for home page
+                localStorage.removeItem('currentPage');
                 history.replaceState(null, null, window.location.pathname);
             }
         }
@@ -1266,27 +1192,14 @@
             });
         }
 
-        function switchLanguage(lang) {
-            // Update active button
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Switch biography language
-            if (lang === 'ch') {
-                document.getElementById('bio-long-en').style.display = 'none';
-                document.getElementById('bio-long-ch').style.display = 'block';
-            } else {
-                document.getElementById('bio-long-en').style.display = 'block';
-                document.getElementById('bio-long-ch').style.display = 'none';
-            }
-
-            // Placeholder for other language switching logic
-            console.log('Switched to:', lang);
-        }
-
         // Image Modal Functions
-        function openModal() {
-            document.getElementById('imageModal').style.display = 'block';
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = modal.querySelector('.modal-content');
+            if (imageSrc) {
+                modalImg.src = imageSrc;
+            }
+            modal.style.display = 'block';
         }
 
         function closeModal() {
@@ -1467,24 +1380,15 @@
             // Initialize YouTube thumbnails
             initYouTubeThumbnails();
 
-            // Try to restore from localStorage first (for IDE refreshes)
-            const savedPage = localStorage.getItem('currentPage');
-            const hash = window.location.hash.substring(1); // Remove the '#'
+            // Always show home page on initial load
+            // Clear any hash or saved state
+            window.location.hash = '';
+            localStorage.removeItem('currentPage');
+            showPage('home');
 
-            if (hash && document.getElementById(hash)) {
-                showPage(hash);
-            } else if (savedPage && document.getElementById(savedPage)) {
-                showPage(savedPage);
-            } else {
-                showPage('home');
-            }
-
-            // Initialize neural network if on home page
-            if (!hash && !savedPage) {
-                initNeuralNetwork();
-                initAudioBubbles();
-            }
-
+            // Initialize neural network for home page
+            initNeuralNetwork();
+            initAudioBubbles();
         });
 
         // Initialize neural network when home page is shown
