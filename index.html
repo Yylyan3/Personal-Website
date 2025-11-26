@@ -118,12 +118,16 @@
             flex: 1;
             margin-left: 280px;
             padding: 60px 80px;
+            position: relative;
+            z-index: 1;
         }
 
         .page {
             display: none;
             max-width: 800px;
             animation: fadeIn 0.5s ease-in-out;
+            position: relative;
+            z-index: 1;
         }
 
         .page.active {
@@ -720,11 +724,13 @@
             z-index: 199;
             opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .menu-overlay.active {
             display: block;
             opacity: 1;
+            pointer-events: auto;
         }
 
         /* Tablet Styles */
@@ -772,10 +778,12 @@
                 z-index: 200;
                 overflow-y: auto;
                 box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                pointer-events: none;
             }
 
             .sidebar.active {
                 left: 0;
+                pointer-events: auto;
             }
 
             .main-content {
