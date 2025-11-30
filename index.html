@@ -1097,19 +1097,19 @@
                         </div>
                         <div class="work-instrumentation">fl., cl., vc., db., hp., perc. • 10'</div>
                     </div>
-                    <div class="work-item" data-category="mixed">
-                        <div class="work-title">
-                            <span class="work-year">2024-25</span>
-                            <a href="works/the-scent-blind.html">The Scent Blind《香盲者》</a>
-                        </div>
-                        <div class="work-instrumentation">vn., bcl., tbn., vib., elec. • 5'</div>
-                    </div>
                     <div class="work-item" data-category="acoustic">
                         <div class="work-title">
                             <span class="work-year">2025</span>
                             <a href="works/fo-ii.html">Fo Ⅱ</a>
                         </div>
                         <div class="work-instrumentation">saxophone quartet • 7'30"</div>
+                    </div>
+                    <div class="work-item" data-category="mixed">
+                        <div class="work-title">
+                            <span class="work-year">2024-25</span>
+                            <a href="works/the-scent-blind.html">The Scent Blind《香盲者》</a>
+                        </div>
+                        <div class="work-instrumentation">vn., bcl., tbn., vib., elec. • 5'</div>
                     </div>
                     <div class="work-item" data-category="mixed">
                         <div class="work-title">
@@ -1281,6 +1281,9 @@
                         <div class="event-title">"Sinking Incense Ⅱ" • <a href="https://www.arco-academy.eu/events/agenda" target="_blank">ARCO Academy 2025</a></div>
                         <div class="event-details">Ensemble Multilatérale, Sohye Jung (cond.)</div>
                     </div>
+                </div>
+                <div class="events-section">
+                    <h3>Past Performances</h3>
                     <div class="event-item">
                         <div class="event-date">April 10, 2025<span class="event-venue"> | Montreal, Canada</span></div>
                         <div class="event-title">"The Scent Blind" • <a href="https://www.actorproject.org/events-2/concert-core-round3-mcgill" target="_blank">The ACTOR Project - CORE Round 3</a></div>
@@ -1291,9 +1294,6 @@
                         <div class="event-title">"Fo Ⅱ" • McGill Composer-in-Residence program</div>
                         <div class="event-details">SSoM Saxophone Quartet</div>
                     </div>
-                </div>
-                <div class="events-section">
-                    <h3>Past Performances</h3>
                     <div class="event-item">
                         <div class="event-date">December 13, 2024<span class="event-venue"> | Montreal, Canada</span></div>
                         <div class="event-title">"Studies for the Second Womb" • <a href="https://www.cirmmt.org/en/events/live-cirmmt/13-dec-2024" target="_blank">live@CIRMMT: Instruments and electronics</a></div>
@@ -1301,7 +1301,7 @@
                     </div>
                     <div class="event-item">
                         <div class="event-date">November 16, 2024<span class="event-venue"> | Baltimore, USA</span></div>
-                        <div class="event-title">"Apropos of Thrownness《被抛性》" • <a href="https://www.redroom.org/diffusion-night-four-voxel-theater/" target="_blank">DIFFUSION Festival</a></div>
+                        <div class="event-title">"Apropos of Thrownness" • <a href="https://www.redroom.org/diffusion-night-four-voxel-theater/" target="_blank">DIFFUSION Festival</a></div>
                         <div class="event-details">Pierre Alexandre Tremblay (diffusion)</div>
                     </div>
                     <div class="event-item">
@@ -1311,7 +1311,7 @@
                     </div>
                     <div class="event-item">
                         <div class="event-date">April 13, 2024<span class="event-venue"> | Paris, France</span></div>
-                        <div class="event-title">"Apropos of Thrownness《被抛性》" • TPMC petites formes 2024</div>
+                        <div class="event-title">"Apropos of Thrownness" • TPMC petites formes 2024</div>
                         <div class="event-details"></div>
                     </div>
                     <div class="event-item">
@@ -1336,7 +1336,7 @@
                     </div>
                     <div class="event-item">
                         <div class="event-date">April 21, 2023<span class="event-venue"> | Montreal, Canada</span></div>
-                        <div class="event-title">"Apropos of Thrownness《被抛性》" • <a href="https://www.cirmmt.org/fr/events/live-cirmmt/poesie-de-tout" target="_blank">live@CIRMMT: Poésie de tout</a></div>
+                        <div class="event-title">"Apropos of Thrownness" • <a href="https://www.cirmmt.org/fr/events/live-cirmmt/poesie-de-tout" target="_blank">live@CIRMMT: Poésie de tout</a></div>
                         <div class="event-details"></div>
                     </div>
                     <div class="event-item">
@@ -1389,7 +1389,7 @@
                 </div>
                 <div class="contact-info">
                     <div class="contact-item">
-                        <strong>Email:</strong> <a href="mailto:yulin.yan33@gmail.com">yulin.yan33@gmail.com</a>
+                        <strong>E-mail:</strong> <a href="mailto:yulin.yan33@gmail.com">yulin.yan33@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -1449,8 +1449,8 @@
                 }
             }
 
-            // Scroll to top when navigating to works page - same behavior as nav click
-            if (pageId === 'works') {
+            // Scroll to top when navigating to works, media, or events page - same behavior as nav click
+            if (pageId === 'works' || pageId === 'media' || pageId === 'events') {
                 // Use requestAnimationFrame to ensure smooth scroll after page is shown
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
@@ -1463,13 +1463,14 @@
                 });
             }
 
-            // Don't save home page to localStorage - always default to home on load
+            // Save current page to localStorage for refresh persistence
+            localStorage.setItem('currentPage', pageId);
+            
+            // Update URL hash to preserve page state on refresh
             if (pageId !== 'home') {
-                localStorage.setItem('currentPage', pageId);
                 window.location.hash = pageId;
             } else {
-                // Clear hash and localStorage for home page
-                localStorage.removeItem('currentPage');
+                // Clear hash for home page but keep it in localStorage
                 history.replaceState(null, null, window.location.pathname);
             }
         }
@@ -1694,6 +1695,13 @@
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
+            // Immediately set scroll to top to prevent visible scroll position on load
+            window.scrollTo(0, 0);
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) {
+                mainContent.scrollTo(0, 0);
+            }
+            
             // Initialize YouTube thumbnails
             initYouTubeThumbnails();
 
@@ -1705,14 +1713,18 @@
                 // Navigate to the page specified in the hash - use same behavior as nav click
                 showPage(hash);
             } else {
-                // Default to home page and clear any hash
-                window.location.hash = '';
-                localStorage.removeItem('currentPage');
-                showPage('home');
-                
-                // Initialize neural network for home page
-                initNeuralNetwork();
-                initAudioBubbles();
+                // Check localStorage for saved page
+                const savedPage = localStorage.getItem('currentPage');
+                if (savedPage && validPages.includes(savedPage)) {
+                    // Restore the saved page - use same behavior as nav click
+                    showPage(savedPage);
+                } else {
+                    // Default to home page only if no hash and no saved page
+                    showPage('home');
+                    // Initialize neural network for home page
+                    initNeuralNetwork();
+                    initAudioBubbles();
+                }
             }
         });
 
