@@ -1705,25 +1705,47 @@
             // Initialize YouTube thumbnails
             initYouTubeThumbnails();
 
-            // Check if there's a hash in the URL (e.g., from back navigation)
+            // Detect navigation type: 'navigate' = direct navigation (clicking URL), 'reload' = refresh
+            const navigationType = performance.getEntriesByType('navigation')[0]?.type || 
+                                 (performance.navigation ? 
+                                  (performance.navigation.type === 0 ? 'navigate' : 
+                                   performance.navigation.type === 1 ? 'reload' : 'navigate') : 
+                                  'navigate');
+            
             const hash = window.location.hash.substring(1); // Remove the '#'
             const validPages = ['home', 'biography', 'media', 'works', 'events', 'contact'];
             
-            if (hash && validPages.includes(hash)) {
-                // Navigate to the page specified in the hash - use same behavior as nav click
-                showPage(hash);
+            // If it's a direct navigation (clicking the web address), always show home page
+            if (navigationType === 'navigate' && !hash) {
+                // Direct navigation to base URL - always show home page
+                showPage('home');
+                // Clear any saved state to ensure clean start
+                localStorage.removeItem('currentPage');
+                // Clear hash if present
+                if (window.location.hash) {
+                    history.replaceState(null, null, window.location.pathname);
+                }
+                // Initialize neural network for home page
+                initNeuralNetwork();
+                initAudioBubbles();
             } else {
-                // Check localStorage for saved page
-                const savedPage = localStorage.getItem('currentPage');
-                if (savedPage && validPages.includes(savedPage)) {
-                    // Restore the saved page - use same behavior as nav click
-                    showPage(savedPage);
+                // Refresh or navigation with hash - restore previous state
+                if (hash && validPages.includes(hash)) {
+                    // Navigate to the page specified in the hash - use same behavior as nav click
+                    showPage(hash);
                 } else {
-                    // Default to home page only if no hash and no saved page
-                    showPage('home');
-                    // Initialize neural network for home page
-                    initNeuralNetwork();
-                    initAudioBubbles();
+                    // Check localStorage for saved page
+                    const savedPage = localStorage.getItem('currentPage');
+                    if (savedPage && validPages.includes(savedPage)) {
+                        // Restore the saved page - use same behavior as nav click
+                        showPage(savedPage);
+                    } else {
+                        // Default to home page only if no hash and no saved page
+                        showPage('home');
+                        // Initialize neural network for home page
+                        initNeuralNetwork();
+                        initAudioBubbles();
+                    }
                 }
             }
         });
