@@ -44,7 +44,7 @@
         }
 
         .logo {
-            padding: 0 40px 60px 40px;
+            padding: 16px 40px 60px 40px;
             margin-bottom: 40px;
         }
 
@@ -137,115 +137,6 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Neural Network Home Page */
-        .neural-network-container {
-            position: relative;
-            width: 100%;
-            height: calc(100vh - 120px);
-            overflow: hidden;
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-        }
-
-        #neuralCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .audio-bubbles {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .audio-bubble {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
-            border: 2px solid #e5e5e5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .audio-bubble:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-            border-color: #333;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
-        }
-
-        .audio-bubble.playing {
-            border-color: #007bff;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            animation: pulse 1s ease-in-out infinite;
-        }
-
-        .bubble-content {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .bubble-title {
-            font-size: 12px;
-            font-weight: 100;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #333;
-            line-height: 1.2;
-        }
-
-        /* Bubble Positioning */
-        .audio-bubble:nth-child(1) {
-            top: 20%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .audio-bubble:nth-child(2) {
-            top: 15%;
-            right: 20%;
-            animation-delay: 1s;
-        }
-
-        .audio-bubble:nth-child(3) {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 2s;
-        }
-
-        .audio-bubble:nth-child(4) {
-            bottom: 25%;
-            left: 20%;
-            animation-delay: 3s;
-        }
-
-        .audio-bubble:nth-child(5) {
-            bottom: 20%;
-            right: 15%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
 
         /* Home Page Legacy */
@@ -484,7 +375,7 @@
             margin-left: 4px;
         }
 
-        /* Works List */
+        /* Catalogue list */
         .works-filter {
             margin-bottom: 40px;
         }
@@ -744,7 +635,7 @@
             }
 
             .logo {
-                padding: 0 30px 50px 30px;
+                padding: 14px 30px 50px 30px;
             }
 
             .nav-menu {
@@ -792,7 +683,7 @@
             }
 
             .logo {
-                padding: 20px 30px 40px 30px;
+                padding: 24px 30px 40px 30px;
             }
 
             .nav-menu {
@@ -856,7 +747,7 @@
                 font-size: 13px;
             }
 
-            /* Works Page */
+            /* Catalogue page */
             .filter-buttons {
                 flex-wrap: wrap;
                 gap: 10px;
@@ -968,7 +859,7 @@
                 <ul class="nav-menu">
                     <li><a href="#" onclick="showPage('biography')" data-page="biography">ABOUT</a></li>
                     <li><a href="#" onclick="showPage('media')" data-page="media">MEDIA</a></li>
-                    <li><a href="#" onclick="showPage('works')" data-page="works">WORKS</a></li>
+                    <li><a href="#" onclick="showPage('works')" data-page="works">CATALOGUE</a></li>
                     <li><a href="#" onclick="showPage('events')" data-page="events">EVENTS</a></li>
                     <li><a href="#" onclick="showPage('contact')" data-page="contact">CONTACT</a></li>
                     <li style="margin-top: 10px; display: flex; gap: 15px; align-items: center;">
@@ -984,7 +875,7 @@
                 </ul>
             </div>
             <div class="sidebar-copyright">
-                © 2025 — YULIN YAN<br>
+                © 2026 — YULIN YAN<br>
                 ALL RIGHTS RESERVED
             </div>
         </nav>
@@ -1007,7 +898,7 @@
                 <div class="bio-layout">
                     <div>
                         <div class="bio-content" id="bio-long-en">
-                            <p>Yulin Yan (b. 1998) is a Chinese composer of instrumental and electroacoustic music, currently based in Montreal, Canada. Drawing on literature, theatricality, olfactory art, and social concerns, her music creates multilayered and sensorial experiences. Her works have been presented internationally at events such as ARCo Academy, ilSUONO Contemporary Music Week, live@CIRMMT, Code d’accès, Collectif RADIANCE, Novalis Festival, Roadrunner Academy, and the Thailand International Composition Festival, among others. She has collaborated with ensembles including Ensemble Multilatérale, Ensemble Suono Giallo, Hong Kong New Music Ensemble, Ensemble Éclat, McGill Contemporary Music Ensemble, and McGill SSoM Saxophone, as well as conductors Lorraine Vaillancourt, Gregor A. Mayrhofer, Charles-Eric Fontaine, and Sohye Jung.
+                            <p>Yulin Yan (b. 1998) is a Chinese composer of instrumental and electroacoustic music, currently based in Montreal. Drawing on literature, theatricality, olfactory art, and social concerns, her music creates multilayered and sensorial experiences. Her works have been presented internationally at events such as ManiFeste, ARCo Academy, ilSUONO Contemporary Music Week, live@CIRMMT, Code d’accès, Collectif RADIANCE, Novalis Festival, Roadrunner Academy, and the Thailand International Composition Festival, among others. She has collaborated with ensembles including Ensemble Multilatérale, Ensemble Suono Giallo, Hong Kong New Music Ensemble, Ensemble Éclat, McGill Contemporary Music Ensemble, and McGill SSoM Saxophone, as well as conductors Lorraine Vaillancourt, Gregor A. Mayrhofer, Charles-Eric Fontaine, and Sohye Jung.
                           </p>Yan receives grants and funding from the Fonds de recherche du Québec (FRQ-SC), the China Scholarship Council (CSC), the Schulich Graduate Scholarship, and the National Scholarship (China). She holds a Bachelor’s degree in Composition from the Sichuan Conservatory of Music, where she studied with Xiaozhong Yang, and a Master’s degree from McGill University, where she is currently pursuing her Doctorate in composition under the supervision of Philippe Leroux.</p>
                         </div>
                         <div style="margin-top: 50px; margin-bottom: 20px;">
@@ -1076,14 +967,14 @@
                 </div>
             </div>
 
-            <!-- Works Page -->
+            <!-- Catalogue page -->
             <div id="works" class="page">
                 <div class="section-header">
-                    <h2>WORKS</h2>
+                    <h2>CATALOGUE</h2>
                 </div>
                 <div class="works-filter">
                     <div class="filter-buttons">
-                        <button class="filter-btn active" onclick="filterWorks('all')">All Works</button>
+                        <button class="filter-btn active" onclick="filterWorks('all')">All</button>
                         <button class="filter-btn" onclick="filterWorks('acoustic')">Acoustic</button>
                         <button class="filter-btn" onclick="filterWorks('mixed')">Mixed</button>
                         <button class="filter-btn" onclick="filterWorks('electroacoustic')">Electroacoustic</button>
@@ -1306,7 +1197,7 @@
                     <h3>Past Performances</h3>
                     <div class="event-item">
                         <div class="event-date">July 11, 2025<span class="event-venue"> | Marseille, France</span></div>
-                        <div class="event-title">"Sinking Incense Ⅱ" • <a href="https://www.arco-academy.eu/events/agenda" target="_blank">ARCO Academy 2025</a></div>
+                        <div class="event-title">"Sinking Incense Ⅱ" • <a href="https://www.arco-academy.eu/events/agenda" target="_blank">ARCo Academy 2025</a></div>
                         <div class="event-details">Ensemble Multilatérale, Sohye Jung (cond.)</div>
                     </div>
                     <div class="event-item">
@@ -1540,143 +1431,6 @@
             }
         }
 
-        // Neural Network Animation
-        function initNeuralNetwork() {
-            const canvas = document.getElementById('neuralCanvas');
-            if (!canvas) return;
-
-            const ctx = canvas.getContext('2d');
-            const bubbles = document.querySelectorAll('.audio-bubble');
-
-            // Set canvas size
-            function resizeCanvas() {
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-
-            // Get bubble positions
-            function getBubblePositions() {
-                return Array.from(bubbles).map(bubble => {
-                    const rect = bubble.getBoundingClientRect();
-                    const containerRect = canvas.getBoundingClientRect();
-                    return {
-                        x: rect.left - containerRect.left + rect.width / 2,
-                        y: rect.top - containerRect.top + rect.height / 2,
-                        element: bubble
-                    };
-                });
-            }
-
-            // Draw neural connections
-            function drawConnections() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                const positions = getBubblePositions();
-
-                ctx.strokeStyle = 'rgba(200, 200, 200, 0.3)';
-                ctx.lineWidth = 1;
-
-                // Draw connections between bubbles
-                for (let i = 0; i < positions.length; i++) {
-                    for (let j = i + 1; j < positions.length; j++) {
-                        const distance = Math.sqrt(
-                            Math.pow(positions[i].x - positions[j].x, 2) +
-                            Math.pow(positions[i].y - positions[j].y, 2)
-                        );
-
-                        if (distance < 400) { // Only draw connections for nearby bubbles
-                            const opacity = Math.max(0.1, 1 - distance / 400);
-                            ctx.strokeStyle = `rgba(200, 200, 200, ${opacity})`;
-
-                            ctx.beginPath();
-                            ctx.moveTo(positions[i].x, positions[i].y);
-                            ctx.lineTo(positions[j].x, positions[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-
-                // Draw active connections for playing bubbles
-                const playingBubbles = Array.from(bubbles).filter(b => b.classList.contains('playing'));
-                if (playingBubbles.length > 0) {
-                    ctx.strokeStyle = 'rgba(0, 123, 255, 0.6)';
-                    ctx.lineWidth = 2;
-
-                    playingBubbles.forEach(playingBubble => {
-                        const playingPos = positions.find(p => p.element === playingBubble);
-                        positions.forEach(pos => {
-                            if (pos.element !== playingBubble) {
-                                ctx.beginPath();
-                                ctx.moveTo(playingPos.x, playingPos.y);
-                                ctx.lineTo(pos.x, pos.y);
-                                ctx.stroke();
-                            }
-                        });
-                    });
-                }
-            }
-
-            // Animation loop
-            function animate() {
-                drawConnections();
-                requestAnimationFrame(animate);
-            }
-            animate();
-        }
-
-        // Audio Management
-        let currentAudio = null;
-
-        function initAudioBubbles() {
-            const bubbles = document.querySelectorAll('.audio-bubble');
-
-            bubbles.forEach(bubble => {
-                bubble.addEventListener('mouseenter', function() {
-                    const audioSrc = this.dataset.audio;
-                    const title = this.dataset.title;
-
-                    // Stop current audio
-                    if (currentAudio) {
-                        currentAudio.pause();
-                        currentAudio.currentTime = 0;
-                        document.querySelectorAll('.audio-bubble').forEach(b => b.classList.remove('playing'));
-                    }
-
-                    // Play new audio
-                    currentAudio = new Audio(audioSrc);
-                    currentAudio.volume = 0.7;
-                    currentAudio.play().catch(e => {
-                        console.log('Audio play failed:', e);
-                        // Fallback: show visual feedback even if audio fails
-                    });
-
-                    this.classList.add('playing');
-
-                    // Remove playing class when audio ends
-                    currentAudio.addEventListener('ended', () => {
-                        this.classList.remove('playing');
-                    });
-                });
-
-                bubble.addEventListener('mouseleave', function() {
-                    // Optional: fade out audio on mouse leave
-                    if (currentAudio) {
-                        const fadeAudio = setInterval(() => {
-                            if (currentAudio.volume > 0.1) {
-                                currentAudio.volume -= 0.1;
-                            } else {
-                                clearInterval(fadeAudio);
-                                currentAudio.pause();
-                                currentAudio.currentTime = 0;
-                                this.classList.remove('playing');
-                            }
-                        }, 50);
-                    }
-                });
-            });
-        }
-
         // YouTube thumbnail click handler - embed video inline
         function initYouTubeThumbnails() {
             const youtubeThumbnails = document.querySelectorAll('.youtube-thumbnail');
@@ -1750,9 +1504,6 @@
                 if (window.location.hash) {
                     history.replaceState(null, null, window.location.pathname);
                 }
-                // Initialize neural network for home page
-                initNeuralNetwork();
-                initAudioBubbles();
             } else {
                 // Refresh or navigation with hash - restore previous state
                 if (hash && validPages.includes(hash)) {
@@ -1767,25 +1518,14 @@
                     } else {
                         // Default to home page only if no hash and no saved page
                         showPage('home');
-                        // Initialize neural network for home page
-                        initNeuralNetwork();
-                        initAudioBubbles();
                     }
                 }
             }
         });
 
-        // Initialize neural network when home page is shown
         const originalShowPage = showPage;
         showPage = function(pageId) {
             originalShowPage(pageId);
-            if (pageId === 'home') {
-                setTimeout(() => {
-                    initNeuralNetwork();
-                    initAudioBubbles();
-                }, 100);
-            }
-            // Re-initialize YouTube thumbnails when switching pages (in case Media page is loaded dynamically)
             setTimeout(() => {
                 initYouTubeThumbnails();
             }, 100);
