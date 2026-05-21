@@ -166,7 +166,24 @@
         max-width: 100%;
     }
 }
+#neuronCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair; /* 改变光标形状增强交互感 */
+}
 
+.home-instruction {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: #9CA3AF; /* cite: 27 */
+    text-transform: uppercase;
+    pointer-events: none; /* 确保文字不会阻挡鼠标点击画布 */
+}
         /* Home Page Legacy */
         .home-content {
             padding-top: 100px;
@@ -916,11 +933,9 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Home Page -->
-            <div id="home" class="page active">
-                <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; min-height: calc(100vh - 120px); padding-top: 10vh;">
-                    
-                    <img src="Headshot_YulinYan_2.jpg" alt="Yulin Yan" onclick="openModal('Headshot_YulinYan_2.jpg')" style="width: 400px; height: auto; object-fit: contain; cursor: pointer;">
-                    <div style="margin-top: 20px; font-size: 12px; color: #666; letter-spacing: 0.5px; font-family: Optima, 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;">photo credit: DONGXIAOYUAN</div>
+            <div id="home" class="page active" style="overflow: hidden; height: calc(100vh - 120px); width: 100%; position: relative; background-color: #fafafa;"> <canvas id="neuronCanvas"></canvas>
+                <div class="home-instruction">
+                    <p>探索声音碎片 / HOVER TO EXPLORE SOUND FRAGMENTS</p>
                 </div>
             </div>
 
@@ -932,7 +947,7 @@
                 <div class="bio-layout">
                     <div>
                         <div class="bio-content" id="bio-long-en">
-                            <p>Yulin Yan (b. 1998, CN) is a composer of instrumental and electroacoustic music currently based in Montreal. Rooted in the spiritual legacy of her upbringing in China, her music explores the tension between ultimate intimacy and detachment inherent in human nature. Her works have been presented internationally at events such as ManiFeste, ARCo Academy, ilSUONO Contemporary Music Week, live@CIRMMT, Code d’accès, Collectif RADIANCE, Novalis Festival, Roadrunner Academy, and the Thailand International Composition Festival, among others. She has collaborated with ensembles including Ensemble Multilatérale, BL!NDMAN [sax], Ensemble Suono Giallo, Hong Kong New Music Ensemble, Ensemble Éclat, McGill Contemporary Music Ensemble, and McGill SSoM Saxophone, as well as conductors Lorraine Vaillancourt, Gregor A. Mayrhofer, Charles-Eric Fontaine, and Sohye Jung.
+                            <p>Yulin Yan (b. 1998, CN) is a composer of instrumental and electroacoustic music, currently based in Montreal. Drawing on literature, theatricality, olfactory art, and social concerns, her music creates multilayered and sensorial experiences. Her works have been presented internationally at events such as ManiFeste, ARCo Academy, ilSUONO Contemporary Music Week, live@CIRMMT, Code d’accès, Collectif RADIANCE, Novalis Festival, Roadrunner Academy, and the Thailand International Composition Festival, among others. She has collaborated with ensembles including Ensemble Multilatérale, Ensemble Suono Giallo, Hong Kong New Music Ensemble, Ensemble Éclat, McGill Contemporary Music Ensemble, and McGill SSoM Saxophone, as well as conductors Lorraine Vaillancourt, Gregor A. Mayrhofer, Charles-Eric Fontaine, and Sohye Jung.
                           </p>Yan receives grants and funding from the Fonds de recherche du Québec (FRQ-SC), the China Scholarship Council (CSC), the Schulich Graduate Scholarship, and the National Scholarship (China). She holds a Bachelor’s degree in Composition from the Sichuan Conservatory of Music, where she studied with Xiaozhong Yang, and a Master’s degree from McGill University, where she is currently pursuing her Doctorate in composition under the supervision of Philippe Leroux.</p>
                         </div>
                         <div style="margin-top: 50px; margin-bottom: 20px;">
@@ -1017,7 +1032,7 @@
                 <div class="works-list">
                     <div class="work-item" data-category="mixed">
                         <div class="work-title">
-                            <span class="work-year">2025-26</span>
+                            <span class="work-year">2026</span>
                             <a href="works/broken-soliloquy.html">Broken Soliloquy《碎白》</a>
                         </div>
                         <div class="work-instrumentation">fl., sax., elec. • 5'30"</div>
@@ -1209,28 +1224,23 @@
                 <div class="events-section">
                     <h3>Upcoming</h3>
                     <div class="event-item">
-                        <div class="event-date">Feburary 26, 2027<span class="event-venue"> | Montreal, Canada</span></div>
+                        <div class="event-date">TBD, 2026-27<span class="event-venue"> | Montreal, Canada</span></div>
                         <div class="event-title">new work • McGill Composer-in-Residence program</a></div>
                         <div class="event-details">McGill Contemporary Music Ensemble</div>
                     </div>
                     <div class="event-item">
-                        <div class="event-date">December 11, 2026<span class="event-venue"> | Montreal, Canada</span></div>
-                        <div class="event-title">new work • live@CIRMMT</a></div>
-                        <div class="event-details">Eda Lu (fl.), Amelia McLeod (sax.)</div>
-                    </div>
-                    <div class="event-item">
                         <div class="event-date">June 27, 2026<span class="event-venue"> | Paris, France</span></div>
-                        <div class="event-title">"Ma Mère l’Oye (excerpt)" • <a href="https://www.ircam.fr/en/events/concert2-in-situ-academie" target="_blank">ManiFeste-2026 Academy</a></div>
+                        <div class="event-title">new work • ManiFeste-2026 Academy</a></div>
                         <div class="event-details">BL!NDMAN [sax]</div>
                     </div>
                     <div class="event-item">
                         <div class="event-date">May 02, 2026<span class="event-venue"> | Montreal, Canada</span></div>
-                        <div class="event-title">"Broken Soliloquy" • Master's recital</a></div>
+                        <div class="event-title">new work • Master's recital</a></div>
                         <div class="event-details">Eda Lu (fl.), Amelia McLeod (sax.)</div>
                     </div>
                     <div class="event-item">
                         <div class="event-date">May 01, 2026<span class="event-venue"> | Montreal, Canada</span></div>
-                        <div class="event-title">"Broken Soliloquy" • Master's recital</a></div>
+                        <div class="event-title">new work • Master's recital</a></div>
                         <div class="event-details">Eda Lu (fl.), Amelia McLeod (sax.)</div>
                     </div>
                     <div class="event-item">
@@ -1576,6 +1586,134 @@
                 initYouTubeThumbnails();
             }, 100);
         };
+
+// --- 1. 数据与音频初始化 ---
+const clipsData = [
+    { src: 'clips/FuGu+RAVE-clip.wav', label: 'FuGu+RAVE' },
+    { src: 'clips/harmtr+RAVE-clip.wav', label: 'Harmtr+RAVE' },
+    { src: 'clips/text-grains-clip.wav', label: 'Text Grains' }
+];
+
+const audioObjects = clipsData.map(data => {
+    const audio = new Audio(data.src);
+    audio.loop = true;
+    audio.volume = 0;
+    return { audio, ...data };
+});
+
+// --- 2. 获取画布上下文 ---
+const canvas = document.getElementById('neuronCanvas');
+const ctx = canvas.getContext('2d');
+let neurons = [];
+let mouse = { x: -1000, y: -1000 };
+
+function resizeCanvas() {
+    if (!canvas.parentElement) return;
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+}
+
+// --- 3. 完整的神经元类 (Neuron) ---
+class Neuron {
+    // 修复点1：必须有 constructor，给节点分配初始位置和速度
+    constructor(audioObj) {
+        this.audioObj = audioObj;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.active = false;
+    }
+
+    // 修复点2：必须有 update 方法，让节点移动并碰到边缘反弹
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.active ? 6 : 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = this.active ? '#333' : '#ddd';
+        ctx.fill();
+    }
+
+    // 优化：加入防报错处理，避免计算溢出
+    handleAudio(dist) {
+        const audio = this.audioObj.audio;
+        if (dist < 100) { 
+            // 鼠标靠近：淡入
+            if (audio.paused) {
+                // 捕获并忽略浏览器自动播放限制的报错
+                audio.play().catch(e => console.warn("需点击页面交互后方可播放声音"));
+            }
+            if (audio.volume < 0.8) audio.volume = Math.min(1, audio.volume + 0.05);
+            this.active = true;
+        } else { 
+            // 鼠标离开：淡出
+            if (audio.volume > 0.05) {
+                audio.volume = Math.max(0, audio.volume - 0.05);
+            } else {
+                audio.pause();
+                audio.volume = 0;
+                this.active = false;
+            }
+        }
+    }
+}
+
+// --- 4. 动画循环引擎 ---
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < neurons.length; i++) {
+        // 绘制两两连线
+        for (let j = i + 1; j < neurons.length; j++) {
+            const d = Math.hypot(neurons[i].x - neurons[j].x, neurons[i].y - neurons[j].y);
+            if (d < 150) {
+                ctx.beginPath();
+                ctx.moveTo(neurons[i].x, neurons[i].y);
+                ctx.lineTo(neurons[j].x, neurons[j].y);
+                ctx.strokeStyle = `rgba(220, 220, 220, ${1 - d / 150})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+        
+        // 执行交互、移动与渲染
+        const mDist = Math.hypot(neurons[i].x - mouse.x, neurons[i].y - mouse.y);
+        neurons[i].handleAudio(mDist);
+        neurons[i].update(); // <--- 之前就是卡死在这里
+        neurons[i].draw();
+    }
+    requestAnimationFrame(animate);
+}
+
+// --- 5. 事件监听与启动 ---
+window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+});
+
+// 当鼠标离开画布区时，切断所有连线和声音
+window.addEventListener('mouseout', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+});
+
+// 初始化启动
+window.addEventListener('load', () => {
+    resizeCanvas();
+    neurons = audioObjects.map(obj => new Neuron(obj));
+    animate();
+});
+
+window.addEventListener('resize', resizeCanvas);
+
     </script>
+    
 </body>
 </html>
