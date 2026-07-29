@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Read(//var/folders/z5/9cj4dz1j2053khjqdmlxqbb40000gn/T/TemporaryItems/NSIRD_screencaptureui_c4msj3/**)"
+      "Read(//var/folders/z5/9cj4dz1j2053khjqdmlxqbb40000gn/T/TemporaryItems/NSIRD_screencaptureui_c4msj3/**)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/yulin/Documents/GitHub/Personal-Website/Media-pic/SSW.JPG\")",
+      "Bash(python3)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/yulin/Documents/GitHub/Personal-Website/Media-pic/Ru.png\")",
+      "Bash(python3 -c ' *)",
+      "Bash(awk '/h3/{print \"\\\\n\"$0} /excerpt-player/{c++} END{}')",
+      "Bash(grep -n 'ratio-landscape\">\\\\s*$\\\\|Fo.png\\\\|M%27offrir\\\\|M.offrir.JPG' /Users/yulin/Documents/GitHub/Personal-Website/index.html)"
     ],
     "deny": [],
     "ask": []

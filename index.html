@@ -58,7 +58,7 @@
         }
 
         .logo h1 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 100;
             letter-spacing: 0.28em;
             text-transform: uppercase;
@@ -70,6 +70,15 @@
 
         .logo h1:hover {
             color: #666;
+        }
+
+        .logo .subtitle {
+            font-size: 14.5px;
+            font-weight: 100;
+            letter-spacing: 0.1em;
+            color: #6B7280;
+            margin-top: 10px;
+            font-family: Optima, 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
         }
 
         .nav-menu {
@@ -84,7 +93,7 @@
         .nav-menu a {
             color: #6B7280;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 100;
             letter-spacing: 0.22em;
             text-transform: uppercase;
@@ -342,6 +351,262 @@
         .media-item .youtube-thumbnail {
             margin-top: 10px;
             align-self: stretch;
+        }
+
+        .excerpt-players {
+            display: flex;
+            gap: 30px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .excerpt-player {
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .excerpt-player audio {
+            width: 100%;
+            height: 32px;
+            accent-color: #333;
+            filter: grayscale(1) opacity(0.85) contrast(1.1);
+        }
+
+        /* Local media cards with hover-reveal players */
+        .local-media-grid {
+            columns: 3;
+            column-gap: 10px;
+            column-fill: auto;
+            margin-top: 30px;
+        }
+
+        .local-media-card {
+            display: inline-block;
+            width: 100%;
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            margin-bottom: 10px;
+        }
+
+        .media-card-header {
+            margin-bottom: 8px;
+        }
+
+        .media-card-header h3 {
+            font-size: 16px;
+            font-weight: 100;
+            margin: 0;
+        }
+
+        .work-title-cn {
+            display: block;
+            font-size: 13px;
+            font-weight: 100;
+            font-style: normal;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .work-title-cn-inline {
+            display: inline;
+            margin-top: 0;
+            margin-left: 4px;
+        }
+
+        .media-thumb {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #f2f2f2;
+        }
+
+        .media-thumb img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .media-thumb.ratio-landscape img {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        .media-thumb.ratio-portrait img {
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+        }
+
+        .media-thumb.ratio-square img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .media-thumb.stretch img {
+            object-fit: fill;
+        }
+
+        .media-thumb.crop-top img {
+            object-position: top;
+        }
+
+        .media-thumb.crop-bottom img {
+            object-position: bottom;
+        }
+
+        .media-thumb.crop-right img {
+            object-position: right;
+        }
+
+        .media-thumb.zoom-slight img {
+            transform: scale(1.12);
+            transform-origin: top;
+        }
+
+        .thumb-listen-more-bottom {
+            display: block;
+            width: fit-content;
+            margin: 8px 0 0 auto;
+            font-size: 11px;
+            color: #666;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: Optima, 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .thumb-listen-more-bottom:hover {
+            color: #111827;
+            border-bottom-color: #111827;
+        }
+
+        .media-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 2;
+        }
+
+        .media-thumb:hover .media-thumb-overlay,
+        .media-thumb:focus-within .media-thumb-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .thumb-credit {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            text-align: center;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.04em;
+            font-family: Optima, 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .media-thumb-overlay .excerpt-players {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+            gap: 14px;
+            max-height: 100%;
+        }
+
+        .media-thumb-overlay .excerpt-player {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .media-thumb-overlay .excerpt-player audio {
+            display: none;
+        }
+
+        .circle-play {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-progress {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .circle-progress .circle-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 2.4;
+        }
+
+        .circle-progress .circle-fg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.95);
+            stroke-width: 2.4;
+            stroke-linecap: round;
+            stroke-dasharray: 125.6;
+            stroke-dashoffset: 125.6;
+            transition: stroke-dashoffset 0.1s linear;
+        }
+
+        .circle-play .play-icon {
+            position: relative;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7px 0 7px 11px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
+            margin-left: 3px;
+        }
+
+        .circle-play.playing .play-icon {
+            width: 9px;
+            height: 12px;
+            border: none;
+            margin-left: 0;
+        }
+
+        .circle-play.playing .play-icon::before,
+        .circle-play.playing .play-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 3px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .circle-play.playing .play-icon::before {
+            left: 0;
+        }
+
+        .circle-play.playing .play-icon::after {
+            left: 6px;
         }
 
         .media-link {
@@ -883,6 +1148,7 @@
             <div class="nav-content">
                 <div class="logo">
                     <h1 onclick="showPage('home')">YULIN YAN</h1>
+                    <div class="subtitle">composer | sound artist</div>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#" onclick="showPage('biography')" data-page="biography">ABOUT</a></li>
@@ -947,7 +1213,290 @@
                 <div class="section-header">
                     <h2>MEDIA</h2>
                 </div>
-                <div class="media-grid">
+                <div class="section-header" style="text-align: left; padding: 0; margin-bottom: 10px;">
+                    <h3 style="font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #666; margin: 0;">Excerpts</h3>
+                </div>
+                <div class="local-media-grid">
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>Apropos of Thrownness<span class="work-title-cn work-title-cn-inline">《被抛性》</span></h3>
+                        </div>
+                        <div class="media-thumb">
+                            <img src="Media-pic/Apropos%20of%20Thrownness.png" alt="Apropos of Thrownness">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/Apropos%20of%20Thrownness-excerpt-1.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/Apropos%20of%20Thrownness-excerpt-2.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/Apropos%20of%20Thrownness_-excerpt-3.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 蒋志 (JIANG Zhi)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/apropos-of-thrownness.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>The Scent Blind<span class="work-title-cn work-title-cn-inline">《香盲者》</span></h3>
+                        </div>
+                        <div class="media-thumb ratio-portrait crop-bottom">
+                            <img src="Media-pic/The%20Scent%20Blind.png" alt="The Scent Blind">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/The%20Scent%20Blind-excerpt-1.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/The%20Scent%20Blind-excerpt-2.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/The%20Scent%20Blind-excerpt-3.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 蒋志 (JIANG Zhi)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/the-scent-blind.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>Fo</h3>
+                        </div>
+                        <div class="media-thumb ratio-landscape crop-top">
+                            <img src="Media-pic/Fo.png" alt="Fo">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/Fo-excerpt.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 蒋志 (JIANG Zhi)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/fo.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>M'offrirai<span class="work-title-cn work-title-cn-inline">《祭吾之》</span></h3>
+                        </div>
+                        <div class="media-thumb ratio-portrait crop-top zoom-slight">
+                            <img src="Media-pic/M'offrir.JPG" alt="M'offrirai">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/M'offrirai-excerpt-1.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/M'offrirai-excerpt-2.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 靳山 (JIN Shan)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/moffrirai.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>Studies for the Second Womb<span class="work-title-cn">《二号子宫研究》</span></h3>
+                        </div>
+                        <div class="media-thumb ratio-square stretch">
+                            <img src="Media-pic/SSW.JPG" alt="Studies for the Second Womb">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/SSW-1%20%EF%BC%88pre-study%EF%BC%89.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/SSW-excerpt-%232.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/SSW-excerpt-%233.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 陈昭辰 (CHEN Zhaochen)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/studies-for-the-second-womb.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>Ru</h3>
+                        </div>
+                        <div class="media-thumb ratio-landscape">
+                            <img src="Media-pic/Ru.png" alt="Ru">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/Ru-excerpt-1.wav"></audio>
+                                    </div>
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/Ru-excerpt-2.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 蒋志 (JIANG Zhi)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/ru.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>Fo Ⅱ</h3>
+                        </div>
+                        <div class="media-thumb ratio-portrait">
+                            <img src="Media-pic/Fo2.png" alt="Fo Ⅱ">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/Fo2-excerpt-1.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 蒋志 (JIANG Zhi)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/fo-ii.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                    <div class="local-media-card">
+                        <div class="media-card-header">
+                            <h3>To Whom It May Not Guilt<span class="work-title-cn">《致无歉之人》</span></h3>
+                        </div>
+                        <div class="media-thumb ratio-landscape crop-right">
+                            <img src="Media-pic/To%20Whom%20It%20May%20Not%20Guilt.JPG" alt="To Whom It May Not Guilt">
+                            <div class="media-thumb-overlay">
+                                <div class="excerpt-players">
+                                    <div class="excerpt-player">
+                                        <button class="circle-play" type="button" aria-label="Play excerpt">
+                                            <svg class="circle-progress" viewBox="0 0 48 48">
+                                                <circle class="circle-bg" cx="24" cy="24" r="20"></circle>
+                                                <circle class="circle-fg" cx="24" cy="24" r="20"></circle>
+                                            </svg>
+                                            <span class="play-icon"></span>
+                                        </button>
+                                        <audio preload="none" src="Excerpts-mastered/To%20Whom%20It%20May%20Not%20Guilt-excerpt.wav"></audio>
+                                    </div>
+                                                                <div class="thumb-credit">Cover © 蒋志 (JIANG Zhi)</div>
+                            </div>
+                    </div>
+                        </div>
+                        <a href="works/to-whom-it-may-not-guilt.html" class="thumb-listen-more-bottom">Listen more</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 24px; text-align: right; font-size: 13px; color: #999; font-style: italic; font-family: Optima, 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;">Listening with headphones 🎧 is highly recommended.</div>
+
+                <div class="section-header" style="margin-top: 40px; margin-bottom: 10px; text-align: left; padding: 0;">
+                    <h3 style="font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #666; margin: 0;">MORE WORKS</h3>
+                </div>
+                <div class="media-grid" style="margin-top: 30px;">
                     <div class="media-item">
                         <h3>ciāo</h3>
                         <p>2022 • large ensemble • 8'10"</p>
@@ -955,44 +1504,20 @@
                         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/2-2-5a" title="ciāo《劁》[2022]" target="_blank" style="color: #cccccc; text-decoration: none;">ciāo《劁》[2022]</a></div>
                     </div>
                     <div class="media-item">
-                        <h3>Post-Pandemic Memo</h3>
+                        <h3>Post-Pandemic Memo<span class="work-title-cn work-title-cn-inline">《后疫书》</span></h3>
                         <p>2022 • vc., elec. • 9'</p>
                         <div class="youtube-thumbnail" data-video-id="Ce2N7Xvy9WI">
                             <img src="https://img.youtube.com/vi/Ce2N7Xvy9WI/hqdefault.jpg" alt="Post-Pandemic Memo" width="100%" height="300" loading="eager" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/Ce2N7Xvy9WI/sddefault.jpg';">
                             <div class="youtube-play-button"></div>
                         </div>
                     </div>
-                    <div class="media-item" style="grid-column: 1 / -1;">
-                        <h3>Studies for the Second Womb</h3>
-                        <p>2023 • tsax., vc., elec. • 12'</p>
-                        <iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2088090663&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" style="margin-top: 10px;"></iframe>
-                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/sets/studies-for-the-second-womb" title="Studies for the Second Womb《二号子宫研究》[2023]" target="_blank" style="color: #cccccc; text-decoration: none;">Studies for the Second Womb《二号子宫研究》[2023]</a></div>
-                    </div>
                     <div class="media-item">
-                        <h3>Fo</h3>
-                        <p>2024 • asax., db., elec. • 4'10"</p>
-                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1973469323&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" style="margin-top: 10px;"></iframe>
-                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/fo-excerpt" title="Fo [2024] | excerpt" target="_blank" style="color: #cccccc; text-decoration: none;">Fo [2024] | excerpt</a></div>
-                    </div>
-                    <div class="media-item">
-                        <h3>Fo Ⅱ</h3>
-                        <p>2025 • saxophone quartet • 7'30"</p>
-                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2170619211&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" style="margin-top: 10px;"></iframe>
-                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/fo-ii" title="Fo II [2025]" target="_blank" style="color: #cccccc; text-decoration: none;">Fo II [2025]</a></div>
-                    </div>
-                    <div class="media-item">
-                        <h3>Naked Question</h3>
+                        <h3>Naked Question<span class="work-title-cn work-title-cn-inline">《裸问》</span></h3>
                         <p>2022 • vc., elec. • 11'20"</p>
                         <div class="youtube-thumbnail" data-video-id="kt5gypl67ig">
                             <img src="https://img.youtube.com/vi/kt5gypl67ig/hqdefault.jpg" alt="Naked Question" width="100%" height="300" loading="eager" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/kt5gypl67ig/sddefault.jpg';">
                             <div class="youtube-play-button"></div>
                         </div>
-                    </div>
-                    <div class="media-item">
-                        <h3>M'offrirai</h3>
-                        <p>2022 • cl., vc., acc. • 7'20"</p>
-                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1341980296&color=%23e0e8ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" style="margin-top: 10px;"></iframe>
-                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yulin-yan-543435110" title="Yulin Yan" target="_blank" style="color: #cccccc; text-decoration: none;">Yulin Yan</a> · <a href="https://soundcloud.com/yulin-yan-543435110/moffrirai-2022-excerpt" title="M&#x27;offrirai《祭吾之》[2022] | excerpt" target="_blank" style="color: #cccccc; text-decoration: none;">M&#x27;offrirai《祭吾之》[2022] | excerpt</a></div>
                     </div>
                     <div class="media-item" style="grid-column: 1 / -1;">
                         <h3>Works for hybrid ensemble (Chinese traditional instruments & Western orchestral instruments)</h3>
@@ -1505,6 +2030,46 @@
             });
         }
 
+        function initCirclePlayers() {
+            const CIRCUMFERENCE = 125.6;
+            const players = document.querySelectorAll('.media-thumb-overlay .excerpt-player');
+
+            players.forEach(player => {
+                const btn = player.querySelector('.circle-play');
+                const audio = player.querySelector('audio');
+                const fg = player.querySelector('.circle-fg');
+                if (!btn || !audio || btn.hasAttribute('data-listener-attached')) return;
+                btn.setAttribute('data-listener-attached', 'true');
+
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (audio.paused) {
+                        document.querySelectorAll('.media-thumb-overlay audio').forEach(a => {
+                            if (a !== audio && !a.paused) {
+                                a.pause();
+                            }
+                        });
+                        audio.play();
+                    } else {
+                        audio.pause();
+                    }
+                });
+
+                audio.addEventListener('play', () => btn.classList.add('playing'));
+                audio.addEventListener('pause', () => btn.classList.remove('playing'));
+                audio.addEventListener('ended', () => {
+                    btn.classList.remove('playing');
+                    fg.style.strokeDashoffset = CIRCUMFERENCE;
+                });
+                audio.addEventListener('timeupdate', () => {
+                    if (!audio.duration) return;
+                    const progress = audio.currentTime / audio.duration;
+                    fg.style.strokeDashoffset = CIRCUMFERENCE * (1 - progress);
+                });
+            });
+        }
+
         // Handle window resize - close mobile menu on desktop
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
@@ -1533,6 +2098,9 @@
             
             // Initialize YouTube thumbnails
             initYouTubeThumbnails();
+
+            // Initialize circular excerpt players
+            initCirclePlayers();
 
             // Detect navigation type: 'navigate' = direct navigation (clicking URL), 'reload' = refresh
             const navigationType = performance.getEntriesByType('navigation')[0]?.type || 
