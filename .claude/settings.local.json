@@ -7,7 +7,11 @@
       "Bash(sips -g pixelWidth -g pixelHeight \"/Users/yulin/Documents/GitHub/Personal-Website/Media-pic/Ru.png\")",
       "Bash(python3 -c ' *)",
       "Bash(awk '/h3/{print \"\\\\n\"$0} /excerpt-player/{c++} END{}')",
-      "Bash(grep -n 'ratio-landscape\">\\\\s*$\\\\|Fo.png\\\\|M%27offrir\\\\|M.offrir.JPG' /Users/yulin/Documents/GitHub/Personal-Website/index.html)"
+      "Bash(grep -n 'ratio-landscape\">\\\\s*$\\\\|Fo.png\\\\|M%27offrir\\\\|M.offrir.JPG' /Users/yulin/Documents/GitHub/Personal-Website/index.html)",
+      "Bash(curl -s \"https://yan-yulin.com/\")",
+      "Bash(git -C \"/Users/yulin/Documents/GitHub/Personal-Website\" log -1 --format=\"%H %ci\")",
+      "Bash(curl -s -o /tmp/live.html -w \"HTTP_STATUS:%{http_code} SIZE:%{size_download}\\\\n\" \"https://yan-yulin.com/\")",
+      "Read(//tmp/**)"
     ],
     "deny": [],
     "ask": []
