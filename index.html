@@ -1183,11 +1183,11 @@
                     <div class="subtitle">composer | sound artist</div>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#" onclick="showPage('biography')" data-page="biography">ABOUT</a></li>
-                    <li><a href="#" onclick="showPage('media')" data-page="media">MEDIA</a></li>
-                    <li><a href="#" onclick="showPage('works')" data-page="works">CATALOGUE</a></li>
-                    <li><a href="#" onclick="showPage('events')" data-page="events">EVENTS</a></li>
-                    <li><a href="#" onclick="showPage('contact')" data-page="contact">CONTACT</a></li>
+                    <li><a href="#biography" onclick="showPage('biography'); return false;" data-page="biography">ABOUT</a></li>
+                    <li><a href="#media" onclick="showPage('media'); return false;" data-page="media">MEDIA</a></li>
+                    <li><a href="#works" onclick="showPage('works'); return false;" data-page="works">CATALOGUE</a></li>
+                    <li><a href="#events" onclick="showPage('events'); return false;" data-page="events">EVENTS</a></li>
+                    <li><a href="#contact" onclick="showPage('contact'); return false;" data-page="contact">CONTACT</a></li>
                     <li style="margin-top: 10px; display: flex; gap: 15px; align-items: center;">
                         <a href="https://soundcloud.com/yulin-yan-543435110" target="_blank" style="display: inline-flex; align-items: center; padding-left: 0; text-transform: none; letter-spacing: 0; min-height: 44px; padding: 5px 0;">
                             <img src="soundcloud-svgrepo-com.svg" alt="SoundCloud" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(40%); transition: all 0.3s ease;">
@@ -2189,6 +2189,13 @@
                     }
                 }
             }
+        });
+
+        // Support browser back/forward and pasted links like #media
+        window.addEventListener('hashchange', function() {
+            const h = window.location.hash.substring(1);
+            const valid = ['home', 'biography', 'media', 'works', 'events', 'contact'];
+            if (valid.includes(h) && !document.getElementById(h)?.classList.contains('active')) showPage(h);
         });
 
         const originalShowPage = showPage;
